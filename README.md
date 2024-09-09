@@ -166,7 +166,7 @@ services:
     volumes:
       - evolution_code_data:/evolution
     entrypoint: >
-      /bin/sh -c "apk add git && git && chmod 777 -R ./wavoip_script.sh && npm run start:prod"
+      /bin/sh -c "apk add git && git clone https://github.com/wavoip/evolution-scripts.git && chmod 777 -R ./evolution-scripts && ./evolution-scripts/sync_wavoip_docker.sh && npm run start:prod"
   postgres:
     image: postgres:latest
     environment:
