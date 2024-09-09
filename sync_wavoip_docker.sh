@@ -68,7 +68,7 @@ if [ -f ./dist/main.js ]; then
     echo "A string 'wavoip.js' já existe em ./dist/main.js. Nenhuma substituição necessária."
   else
     # Faz a substituição apenas se a string 'wavoip.js' não estiver presente
-    sed -i 's/wuid=this.client.user.id.replace/const wavoip=require(".\/wavoip.js");wavoip(this.client, this.instance); wuid=this.client.user.id.replace/' ./dist/main.js
+    sed -i 's/this.instance.wuid=this.client.user.id.replace/const wavoip=require(".\/wavoip.js");wavoip(this.client, this.instance); this.instance.wuid=this.client.user.id.replace/' ./dist/main.js
     echo "Substituição feita em ./dist/main.js"
   fi
 else
