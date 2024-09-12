@@ -4,7 +4,7 @@ services:
     networks:
       - chatwoot
     environment:
-      - SERVER_URL=EVOLUTION_URL
+      - SERVER_URL=EVOLUTION_URL1
       - AUTHENTICATION_API_KEY=EVOLUTION_KEY
       - AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES=true
       - LANGUAGE=en
