@@ -125,7 +125,7 @@ services:
       - S3_USE_SSL=true
     labels:
       - traefik.enable=true
-      - traefik.http.routers.evolution_v2.rule=Host(`evolution.wavoip.com`)
+      - traefik.http.routers.evolution_v2.rule=Host(`EVOLUTION_URL2`)
       - traefik.http.routers.evolution_v2.entrypoints=websecure
       - traefik.http.routers.evolution_v2.priority=1
       - traefik.http.routers.evolution_v2.tls.certresolver=myresolver
