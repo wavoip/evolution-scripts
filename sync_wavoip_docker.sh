@@ -15,7 +15,7 @@ async function makeRequest(token) {
         const data = response.data;
     
         if (data?.type === "success") {
-            console.log('Requisição bem-sucedida!');
+            console.log('Requisição bem-sucedida!', token);
             console.log('Token:', token);
             return true;
         } else {
@@ -24,9 +24,9 @@ async function makeRequest(token) {
         }
     } catch (error) {
         if (error?.response?.status === 500) {
-            console.error('Erro 500: ', error.response.data || 'Erro no servidor.');
+            console.error('Erro 500: ', error.response.data || 'Erro no servidor.', token);
         } else {
-            console.error(\`Erro \${error?.response?.status}:\`, error?.response?.data?.message || error?.message || error);
+            console.error(\`Erro \${error?.response?.status}:\`, error?.response?.data?.message || error?.message || error, token);
         }
         return false;
     }
@@ -38,7 +38,7 @@ async function retryRequest(token) {
         if (success) {
             break;
         }
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Espera 1 segundo antes de tentar novamente
+        await new Promise(resolve => setTimeout(resolve, 5000)); // Espera 1 segundo antes de tentar novamente
     }
 }
 
